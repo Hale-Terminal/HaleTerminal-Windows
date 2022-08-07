@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\Drew\.nuget\packages\nlog.schema\5.0.1\contentFiles\any\any\NLog.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NLog" Version="5.0.1" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.0.1" />
+    <PackageReference Include="NLog.Schema" Version="5.0.1" />
+    <PackageReference Include="NuGet.CommandLine" Version="6.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="squirrel.windows" Version="1.9.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+
+	<PropertyGroup>
+		<NugetTools>$(PkgNuGet_CommandLine)\tools</NugetTools>
+		<SquirrelTools>$(Pkgsquirrel_windows)\tools</SquirrelTools>
+
+		<version>1.0.0</version>
+
+		<NuspecFile>$(SolutionsDir)ReleaseSpec.nuspec</NuspecFile>
+	</PropertyGroup>
+
+	<Target Name="GenerateRelease" AfterTargets="AfterBuild" Condition="$(Configuration) == Release">
+		<xmlPeek xmlInputPath="$(NuspecFile)" query="/package/metadata/id/text()">
+			<Output TaskParameter="Result" ItemName="ID" />
+		</xmlPeek>
+
+		<Exec Command="$(NugetTools)\NuGet.exe pack $(NuspecFile) -version $(version) -Properties Configuration=Release -OutputDirectory C:\Users\Drew\source\repos\HaleTerminal\Deployment\GeneratedNugets" />
+
+		<Exec Command="$(SquirrelTools)\Squirrel.exe --releasify C:\Users\Drew\source\repos\HaleTerminal\Deployment\GeneratedNugets\@(ID).$(version).nupkg --releaseDir=$(SolutionDir)HaleTerminal\Deployment\Releases" />
+		
+	</Target>
+
+</Project>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>HaleTerminal</id>
+    <version>0.0.0</version>
+    <title>Hale Terminal</title>
+    <authors>Hale Terminal LLC</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://hale-terminal.com</projectUrl>
+    <description>Hale Terminal Windows Application</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2022</copyright>
+    <tags>Finance</tags>
+  </metadata>
+
+	<files>
+		<file src="bin\Release\net6.0-windows\**" target="lib\net45"/>
+	</files>
+</package>
