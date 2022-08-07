@@ -117,7 +117,7 @@ namespace HaleTerminal.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/HaleTerminal;component/pages/user.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/HaleTerminal;V1.0.2.0;component/pages/user.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\User.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

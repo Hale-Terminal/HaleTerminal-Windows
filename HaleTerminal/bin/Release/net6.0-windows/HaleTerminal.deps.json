@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "HaleTerminal/1.0.0": {
+      "HaleTerminal/1.0.2": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "6.0.1",
           "Microsoft.Extensions.Configuration.FileExtensions": "6.0.0",
@@ -1020,7 +1020,7 @@
     }
   },
   "libraries": {
-    "HaleTerminal/1.0.0": {
+    "HaleTerminal/1.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

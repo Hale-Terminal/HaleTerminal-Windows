@@ -15,5 +15,7 @@
         <PasswordBox x:Name="password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,210,0,0" Width="200" FontSize="14" BorderThickness="2" BorderBrush="White"/>
         <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,260,0,0" Width="100" Height="25" Background="#FF353535" Foreground="White" BorderThickness="0" FontSize="14" Click="Button_Click"/>
 
+        <Label x:Name="version" Content="----" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,350,0,0" Foreground="White"/>
+        <Button Content="Check" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,375,0,0" Click="Button_Click_1"/>
     </Grid>
 </Window>

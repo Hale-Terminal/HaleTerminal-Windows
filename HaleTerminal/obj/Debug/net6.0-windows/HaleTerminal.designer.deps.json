@@ -340,6 +340,7 @@
         }
       },
       "NLog.Schema/5.0.1": {},
+      "NuGet.CommandLine/6.2.1": {},
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
         "runtimeTargets": {
           "runtimes/debian.8-x64/native/System.Security.Cryptography.Native.OpenSsl.so": {
@@ -1572,6 +1573,13 @@
       "sha512": "sha512-etYoDN9RbLFsonwLduhYQkF5HZ0lyl8kGrUjrbqop8fmfBxrwaS7zyiZ+1YrDK4qXBn6jE6l00cc2dt9QPFC6A==",
       "path": "nlog.schema/5.0.1",
       "hashPath": "nlog.schema.5.0.1.nupkg.sha512"
+    },
+    "NuGet.CommandLine/6.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3HMYojJmwh2PAbXzRm99b9+RuDQ7aSrfLdCsCpNrWLHXR2xS628jJnMwPjslMPIbhTwNINic55p9ZnEzhNLkfA==",
+      "path": "nuget.commandline/6.2.1",
+      "hashPath": "nuget.commandline.6.2.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

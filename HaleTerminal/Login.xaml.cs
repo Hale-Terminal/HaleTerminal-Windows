@@ -15,7 +15,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
-using HaleTerminal;
+using Squirrel;
 
 namespace HaleTerminal
 {
@@ -24,11 +24,20 @@ namespace HaleTerminal
     /// </summary>
     public partial class Login : Window
     {
+        UpdateManager manager;
         
         public Login()
         {
             Log.Instance.Info("Login window opened at: {time}", DateTimeOffset.UtcNow);
             InitializeComponent();
+            Loaded += Login_Loaded;
+        }
+
+        private async void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+            manager = await UpdateManager
+                .GitHubUpdateManager(@"https://github.com/hale-terminal/HaleTerminal-Windows");
+            version.Content = manager.CurrentlyInstalledVersion().ToString();
         }
 
         private void username_Click(object sender, RoutedEventArgs e)
@@ -80,5 +89,14 @@ namespace HaleTerminal
     
         }
 
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var updateinfo = await manager.CheckForUpdate();
+
+            if (updateinfo.ReleasesToApply.Count > 0)
+            {
+                MessageBox.Show("New update available");
+            }
+        }
     }
 }
